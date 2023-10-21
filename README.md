@@ -1,27 +1,4 @@
 # Aerodynamic-Calculation-by-Vortex-Lattice-Method
-The aerodynamic parameters of subsonic wings are calculated by vortex lattice method.
-
-% main.m
-% Purpose:
-%   Main Function.
-% Last modified:   2023/10/14    by: Minghe Lee  
-
-% WING_Const
-% Purpose:
-%   Definition of astronomical and mathematical constants
-% Last modified:   2023/10/4    by: Minghe Lee  
-
-% divide.m
-% Purpose:
-%   Partition finite element mesh.
-% Last modified:   2023/10/4    by: Minghe Lee  
-
-% axisCal_SBW.m
-% Purpose:
-%   define and calculate the axis of the wing vertex of sweepbackWing
-% Last modified:   2023/10/4    by: Minghe Lee 
-
-% airDynamic_CalLiftingForce.m
-% Purpose:
-%   Calculate the lift coefficient of the wing
-% Last modified:   2023/10/15    by: Minghe Lee 
+This program uses matlab, based on vortex lattice method, to calculate the aerodynamic parameters of subsonic wings, supporting the aerodynamic calculation of rectangular wings, delta wings, and swept wings.
+![aaaaabmp](https://github.com/HoroQwQ/Aerodynamic-Calculation-by-Vortex-Lattice-Method/assets/47414469/a8b63cb4-c9b0-471e-8609-ed28c387156c)
+An example for calculating swept-back wing.
