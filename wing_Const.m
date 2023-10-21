@@ -10,10 +10,10 @@
 %--------------------------------------------------------------------------
 
 %% type of the wing
-type = 1; %1: sweepbackwing  2:deltawing
+type = 0; %1: sweepbackwing  2:deltawing 0:矩形
 
 %% numble of net
-n=2*900;
+n=2*25;
 n=(sqrt(n/2)+1)^2;
 
 %% Mathematical constants
@@ -24,12 +24,13 @@ Deg       = 180.0/pi;            % Degrees per radian
 Arcs      = 3600.0*180.0/pi;     % Arcseconds per radian
     
 %% wing
-deltaWing_wide = 3;
-deltaWing_length = 1;
+deltaWing_TrailingEdge = 3;
+deltaWing_InnerEdge = 1;
 sweepbackWing_angle = 20*Rad;
 sweepbackWing_wide=6;
 sweepbackWing_centra=1;
 sweepbackWing_length=0.5;
+lambda = 6;
 
 %% General
 MJD_J2000 = 51544.5;             % Modif. Julian Date of J2000.0

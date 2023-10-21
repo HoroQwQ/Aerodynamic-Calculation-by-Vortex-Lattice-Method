@@ -30,9 +30,9 @@ if(type==1)
                                                   sweepbackWing_length );
     clear deltaWing_length deltaWing_wide;                                       
 elseif(type==2)
-    
+    [x1s,y1s,x2s,y2s,x3s,y3s,x4s,y4s]=axisCal_DeltaWing(deltaWing_TrailingEdge);
 elseif(type==0)
-    
+    [x1s,y1s,x2s,y2s,x3s,y3s,x4s,y4s]=axisCal_RectangularWing(lambda);
 end
 %% initialize the mesh
 [x,y]=meshgrid(linspace(0,1,sqrt(n)));

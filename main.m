@@ -9,13 +9,21 @@
 %--------------------------------------------------------------------------
 %% initialize
 clc
-clear;
+clear all;
 %% read data
 wing_Const;
 
 Vinf = [0.2,0.4,0.6].*a;
-dZ=(sweepbackWing_wide/2)/(sqrt(n)-1)^2;
-S=(sweepbackWing_wide/2)*(sweepbackWing_length+deltaWing_length);
+if type == 1
+    S=(sweepbackWing_wide/2)*(sweepbackWing_length + sweepbackWing_centra);
+    dZ=(sweepbackWing_wide/2)/(sqrt(n)-1);
+elseif type == 0
+    S = lambda;
+    dZ= lambda/(2*(sqrt(n)-1));
+elseif type == 2
+    S = deltaWing_TrailingEdge*deltaWing_InnerEdge/2;
+    dZ=(deltaWing_TrailingEdge/2)/(sqrt(n)-1);
+end
 %% Print Mesh
 % Define the color
 Col_1=[54,195,201]./255;
@@ -58,11 +66,19 @@ legend([h0(1),h1(1),h2(1),h3(1)],'Mesh','Pneumatic center', 'Air Entry', 'Air Ou
 title('Swept wing meshing');
 xlabel('Z');    ylabel('X');
 
+z0=[-z0 z0];
+x0=[-x0 x0];
+z1=[-z1 z1];
+x1=[-x1 x1];
+z2=[-z2 z2];
+x2=[-x2 x2];
 %% Solve
-for i=-4:10
-    alpha=i*Rad;
-    varGamma= airDynamic_CalVortex(x0,x1,x2,z0,z1,z2,Vinf(2),alpha,(sqrt(n)-1)^2);
-    Cy(i+5)=airDynamic_CalLiftingForce(Vinf(2),RHO,dZ,S,varGamma);
+for j=1:3
+    for i=-4:10
+        alpha=i;
+        [varGamma,K]= airDynamic_CalVortex(x0,x1,x2,z0,z1,z2,Vinf(j),alpha,2.*(sqrt(n)-1)^2);
+        Cy(j,i+5)=airDynamic_CalLiftingForce(Vinf(j),RHO,dZ,S,varGamma);
+    end
 end
 
 
